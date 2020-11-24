@@ -1,2 +1,1128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="__z-nAA2SEeujq4q3EywG0A" name="common"/>
+<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_CTL0YA2TEeujq4q3EywG0A" name="collaborator1">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_lyDO0A2VEeujq4q3EywG0A" name="Activity1"/>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_th4oUA2VEeujq4q3EywG0A" name="Activity2"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_tqLzQA2WEeujq4q3EywG0A" name="Interaction3"/>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_zBKfAA2WEeujq4q3EywG0A" name="StateMachine4">
+    <region xmi:type="uml:Region" xmi:id="_0M-K0A2WEeujq4q3EywG0A" name="Region1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_bz514BhlEeuJKYJz-1F4yA" name="Uber">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_2pk30BhlEeuJKYJz-1F4yA" name="Create Account">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_313NgBihEeu3Xuvrl2yTzA">
+        <body>Create Unregistered User Account&#xD;
+ID: UC10&#xD;
+&#xD;
+Description:&#xD;
+This UC consists in the creation of an Uber account by an Unregistered user.&#xD;
+Actors&#xD;
+       Main: Unregistered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+&#xD;
+Main flow&#xD;
+1-The user opens the app&#xD;
+2-The user presses the get started button prompt&#xD;
+3-The user chooses the preferred method of registering&#xD;
+4- The system sends a confirmation code to the user’s device&#xD;
+5-The user finishes the registering process by typing in the confirmation code &#xD;
+6-The system confirms the inputted code&#xD;
+7-The main menu is displayed&#xD;
+&#xD;
+Alternative flow:&#xD;
+The user misinputs the confirmation code, resulting in a repeated iteration of the system sending a new confirmation code.&#xD;
+Post-conditions:&#xD;
+System records the personal data which is going to appear in the client’s profile.&#xD;
+System adds new user to the database.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The user misinputs the confirmation code&#xD;
+ID: 1.1&#xD;
+Description:&#xD;
+The system informs the user that the confirmation code isn’t valid&#xD;
+Actors:&#xD;
+       Main: Unregistered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The user inserted an invalid confirmation code.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 5 of main flow&#xD;
+2-The app sends an error message and the registration process goes back to step 4&#xD;
+Post-conditions&#xD;
+None</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_5tacQBhlEeuJKYJz-1F4yA" name="Change account details">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_B0YsIBiiEeu3Xuvrl2yTzA">
+        <body>Change account details&#xD;
+ID: UC19&#xD;
+Description:&#xD;
+This UC allows the user to access and change his personal data&#xD;
+Actors &#xD;
+Main: Registered user&#xD;
+Secondary: None&#xD;
+Pre-conditions:&#xD;
+The Uber servers are up and running, the user has a stable internet connection, the user has the latest version of the app installed, the user has an account logged in&#xD;
+Main flow&#xD;
+1-The UC starts when the user opens the app&#xD;
+2-The app connects to the internet&#xD;
+3-Include(Access account details)&#xD;
+4-The user informs they want to alter their information &#xD;
+5-The user changes their information accordingly&#xD;
+6-The user chooses to apply these changes&#xD;
+7-The system checks to see if the information the user has modified is valid&#xD;
+8-The system saves these changes and updates its database&#xD;
+9-The system reports the changes were successfully applied&#xD;
+Alternative flow: the information the user submitted is not valid, the system could not communicate to the database and apply the changes&#xD;
+Postconditions: The user’s information is changed.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The information the user submitted is not valid.&#xD;
+ID: 19.1&#xD;
+Description:&#xD;
+The system informs the user that the data he has submitted is not valid&#xD;
+Actors:&#xD;
+       Main: Registered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The user inserted invalid data.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 7 of main flow&#xD;
+2-The app sends an error message and the changes do not go through&#xD;
+Postconditions:&#xD;
+None.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The system could not communicate to the database and apply the changes.&#xD;
+ID: 19.2&#xD;
+Description:&#xD;
+The system failed to communicate with the database and could not save the changes&#xD;
+Actors:&#xD;
+       Main: Registered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The communication to the main server failed.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 8 of main flow&#xD;
+2-The app sends an error message and the changes do not go through&#xD;
+Postconditions:&#xD;
+None.</body>
+      </ownedComment>
+      <include xmi:type="uml:Include" xmi:id="_unCn8BhpEeuJKYJz-1F4yA" addition="_859QwBhlEeuJKYJz-1F4yA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_859QwBhlEeuJKYJz-1F4yA" name="Access account details">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_z-WT8BiiEeu3Xuvrl2yTzA">
+        <body>Access account details&#xD;
+ID: UC18&#xD;
+Description:&#xD;
+This UC allows the user to access his account details&#xD;
+Actors &#xD;
+Main: Registered User&#xD;
+Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is initiated, the user is connected to the internet&#xD;
+The user choses to check his trips or to change his account details&#xD;
+Main flow&#xD;
+1-The user chooses to check his profile page&#xD;
+2-The system loads his profile information&#xD;
+3-The user selects account details&#xD;
+4-The system displays the user’s account details&#xD;
+Alternative flow: the system could not communicate with the database and retrieve the user’s information&#xD;
+Postconditions: None.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The system could not communicate with the database and retrieve the user’s information.&#xD;
+ID: 18.1&#xD;
+Description:&#xD;
+The system informs the user that his data could not be retrieved&#xD;
+Actors:&#xD;
+       Main: Registered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The server could not communicate with the main database&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 1 of main flow&#xD;
+2-The app sends an error message and does not show the user’s profile information&#xD;
+Postconditions:&#xD;
+None.</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ZiiyEBh3EeuUhICWwvjDvw" name="Book Uber Ride">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_vSooMBihEeu3Xuvrl2yTzA">
+        <body>Booking Uber Rides Transportation&#xD;
+ID: UC3&#xD;
+Description:&#xD;
+This UC consists in the request for personal transportation by the client.&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+The client’s location is accessible by the Uber Rides Driver.&#xD;
+&#xD;
+Main flow&#xD;
+1-The user opens the app&#xD;
+2-The user enters the trip’s information&#xD;
+3- Includes: Select ride type/location&#xD;
+4-The user finishes the booking process by confirming the fare.&#xD;
+5-The payment is confirmed by the system.&#xD;
+6-The system confirms the booking’s details.&#xD;
+7-The Trip progress menu is displayed.&#xD;
+8- Extension Point: Contacting Uber Rides Driver&#xD;
+&#xD;
+Alternative flow:&#xD;
+The data related with the user for payment isn’t valid. The user’s payment method doesn’t have enough currency to pay for the fare. &#xD;
+Post-conditions:&#xD;
+System records the trip data which is going to appear in Uber Rides Driver’s panel.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The user’s payment data isn’t valid.&#xD;
+ID: 3.1&#xD;
+Description:&#xD;
+The system informs the user that the data he has submitted for payment isn’t valid&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The user inserted an invalid payment data.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 5 of main flow&#xD;
+2-The app sends an error message and the booking process goes back to step 4&#xD;
+Post-conditions&#xD;
+None&#xD;
+&#xD;
+Alternative Flow: The user’s payment method doesn’t have enough currency to pay the delivery.&#xD;
+ID: 3.2&#xD;
+Description:&#xD;
+The system informs the user that there’s not enough currency to finish the transaction.&#xD;
+Actors:&#xD;
+        Main: Client&#xD;
+        Secondary: None&#xD;
+Pre-Conditions:&#xD;
+The user doesn’t have enough currency.&#xD;
+Alternative Flow:&#xD;
+1- The alternative flow begins after step 4 of main flow&#xD;
+2- The app sends an error message and the booking process goes back to step 4&#xD;
+Post-conditions&#xD;
+None</body>
+      </ownedComment>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_nOtAEBh3EeuUhICWwvjDvw" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_oHr2gBh3EeuUhICWwvjDvw" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_VYzgEBh4EeuUhICWwvjDvw" name="ExtensionPoint3"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_CZTTsBh5EeuUhICWwvjDvw" name="ExtensionPoint4"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_-oLP0RiWEeu3Xuvrl2yTzA" name="ExtensionPoint6"/>
+      <include xmi:type="uml:Include" xmi:id="_OZT9YBiDEeuUhICWwvjDvw" addition="_MJgd8BiDEeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hnxz0Bh3EeuUhICWwvjDvw" name="Rate the driver">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ifiTsBiiEeu3Xuvrl2yTzA">
+        <body>Brief Description: Client rates the driver who took him</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_nOrx8Bh3EeuUhICWwvjDvw" extendedCase="_7jSigBiWEeu3Xuvrl2yTzA" extensionLocation="_nOtAEBh3EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_CYxksBh4EeuUhICWwvjDvw" name="Login">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_1IH_cBiiEeu3Xuvrl2yTzA">
+        <body>Brief Description: user logs in</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_JOUgMBh4EeuUhICWwvjDvw" name=" Contacting Uber Rides Driver">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_HvF6kBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Client contacts driver</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_VYy5ABh4EeuUhICWwvjDvw" extendedCase="_ZiiyEBh3EeuUhICWwvjDvw" extensionLocation="_VYzgEBh4EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fPRO4Bh4EeuUhICWwvjDvw" name="Accept Ride">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_UhKw0BihEeu3Xuvrl2yTzA">
+        <body>Accept ride&#xD;
+ID: UC28&#xD;
+Description:&#xD;
+This UC allows the Uber Rides Driver to accept the ride.&#xD;
+Actors &#xD;
+Main: Uber Rides Driver&#xD;
+Secondary: Client&#xD;
+Pre-conditions:&#xD;
+•	Uber servers are up and running.&#xD;
+•	Uber Rides Driver has access to internet connection&#xD;
+•	The user has an app up to date&#xD;
+Main flow&#xD;
+1- The Uber Rides Driver connects to internet&#xD;
+2- The Uber Rides Driver opens the app&#xD;
+3- The Uber Rides Driver accepts the ride.&#xD;
+4-The system saves these changes and updates its database&#xD;
+5-The system reports the changes were successfully applied&#xD;
+6- The Uber Rides Driver confirms that he accepted the ride and looks for the path to get to the client&#xD;
+7- The Uber Rides Driver closes the app&#xD;
+8- Extends: Driver Contacts Client &#xD;
+Alternative flow: &#xD;
+	The client cancels the ride before the driver accepts it.&#xD;
+	There is some problem with the communication between the app and the server&#xD;
+&#xD;
+Post Conditions&#xD;
+The system holds record of the trip data which can be consulted in the driver and client history.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The client cancels the ride before the driver accepts it.&#xD;
+ID: 28.1&#xD;
+Description:&#xD;
+The system gives an error when the Uber Rides Driver tries to accept it.&#xD;
+Actors:&#xD;
+Main: Uber Rides Driver&#xD;
+Secondary: Client&#xD;
+Pre-conditions:&#xD;
+The client cancels the ride.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 3 of main flow&#xD;
+2-The app sends an error message&#xD;
+Post-conditions&#xD;
+None&#xD;
+&#xD;
+Alternative Flow: There is some problem with the communication between the app and the server&#xD;
+ID: 28.2&#xD;
+Description:&#xD;
+The system gives an error when the Uber Rides Driver tries to accept it.&#xD;
+Actors:&#xD;
+Main: Uber Rides Driver&#xD;
+Secondary: Client&#xD;
+Pre-conditions:&#xD;
+None&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 3 of main flow&#xD;
+2-The app sends an error message&#xD;
+Post-conditions&#xD;
+None</body>
+      </ownedComment>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_pFQckRh4EeuUhICWwvjDvw" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Uip1ABiVEeu3Xuvrl2yTzA" name="ExtensionPoint2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_gdShMBh4EeuUhICWwvjDvw" name="Reject ride">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Dh7WkBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Uber Driver rejects ride</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_npoMEBh4EeuUhICWwvjDvw" name="Driver Contacts Client">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_FFtdgBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver contacts client</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_pFQckBh4EeuUhICWwvjDvw" extendedCase="_fPRO4Bh4EeuUhICWwvjDvw" extensionLocation="_pFQckRh4EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__5PxwBh4EeuUhICWwvjDvw" name="Add a stop">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_VTf6wBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Client adds a place where he wants to stop to the trip</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_CZSsoBh5EeuUhICWwvjDvw" extendedCase="_7jSigBiWEeu3Xuvrl2yTzA" extensionLocation="_CZTTsBh5EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__OqHMBh5EeuUhICWwvjDvw" name="Cancel service" visibility="package">
+      <ownedComment xmi:type="uml:Comment" xmi:id="__Fj48BiiEeu3Xuvrl2yTzA">
+        <body>Brief Description: user cancels the service he is taking/rendering</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_LUgCMBh7EeuUhICWwvjDvw" name="Rent scooter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ONf94BiiEeu3Xuvrl2yTzA">
+        <body>Rent Scooter&#xD;
+ID: UC5&#xD;
+Description:&#xD;
+This UC consists on the rental of a scooter by a client.&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: Time&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the users device&#xD;
+There is internet connection on the device the user is using to do the request;&#xD;
+The servers are up and running;&#xD;
+&#xD;
+Main flow&#xD;
+1-The client opens the app&#xD;
+2-The client checks the map for available nearby scooters.&#xD;
+3-The client scans the scooter’s code.&#xD;
+4-The system checks if the client’s payment method is valid.&#xD;
+5-The system unlocks the scooter.&#xD;
+6-The client can ride the scooter freely.&#xD;
+7-The client finishes the trip.&#xD;
+8-Include: Park bike/scooter&#xD;
+9-The system calculates the amount to be payed (according to time spent) and debits that amount on the users account.&#xD;
+&#xD;
+Alternative flow:&#xD;
+The data related with the user for payment isn’t valid for payment. Scooter´s code isn’t scannable. Scooter doesn’t have charge. &#xD;
+&#xD;
+Post Conditions&#xD;
+The system holds record of the trip data which can be consulted in the clients history.&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The data related with the user for payment isn’t valid for payment.&#xD;
+ID: 5.1&#xD;
+Description:&#xD;
+The system informs the client that the data he has submitted for payment isn’t valid&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The user inserted invalid payment data.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 4 of main flow&#xD;
+2-The app sends an error message and the scooter isn’t unlocked&#xD;
+Post-conditions: None&#xD;
+&#xD;
+Alternative Flow: Scooter´s code isn’t scannable&#xD;
+ID: 5.2&#xD;
+Description:&#xD;
+The scooter´s code isn’t recognized by the system and the system cant associate a scooter to it. That said the scooter can’t be unlocked.&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The scooter code isn’t scannable.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 3 of main flow&#xD;
+2-The app sends an error message and the scooter isn’t unlocked&#xD;
+Post-conditions: None&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: Scooter doesn’t have charge&#xD;
+ID: 5.3&#xD;
+Description:&#xD;
+The system informs the user that the scooter doesn’t have charge so it isn’t available for rent&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The scooter doesn’t have charge.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 3 of main flow&#xD;
+2-The app sends an error message and the scooter isn’t unlocked&#xD;
+Post-conditions: None</body>
+      </ownedComment>
+      <include xmi:type="uml:Include" xmi:id="_ZKXJUBh8EeuUhICWwvjDvw" addition="_Pq3wEBh8EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Wj0aUBh7EeuUhICWwvjDvw" name="Rent Bike">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_f4wCMBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Client rents a bike</body>
+      </ownedComment>
+      <include xmi:type="uml:Include" xmi:id="_mk6C4Bh8EeuUhICWwvjDvw" addition="_Pq3wEBh8EeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Pq3wEBh8EeuUhICWwvjDvw" name="Park bike/scooter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ekUl4BijEeu3Xuvrl2yTzA">
+        <body>Booking Uber Rides Transportation&#xD;
+ID: UC14&#xD;
+Description:&#xD;
+This UC consists on the act of parking a bike/scooter by the part of a client&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+The client finished his trip.&#xD;
+&#xD;
+Main flow&#xD;
+1-The client chooses a spot and parks his bike/scooter there&#xD;
+2-The client takes a photo of the bike/scooter and uploads it to uber&#xD;
+&#xD;
+Alternative flow:&#xD;
+There inst internet connection and the user cant upload the foto &#xD;
+&#xD;
+Post-conditions:&#xD;
+System records the foto taken by the client.</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_aAECQBh8EeuUhICWwvjDvw" name="Search for bike/scooter">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_MGEh4BijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Client searches for a bike or scooter in the map.</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_sTzfYBh8EeuUhICWwvjDvw" name="Book Uber Freight">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iIRNwBijEeu3Xuvrl2yTzA">
+        <body>Brief Description:Client books a uber freight</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_gZhpQBh9EeuUhICWwvjDvw" name="Contact Support">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_BznaoBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: User contacts Uber personel for help</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hdKloBh_EeuUhICWwvjDvw" name="Consult booked loads">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_POTbsBkzEeu6ddopLlIi4w">
+        <body>Consult book loads&#xD;
+ID: UC29&#xD;
+&#xD;
+Description:&#xD;
+This UC allows the user to consult the information about a shipment.&#xD;
+&#xD;
+Actors &#xD;
+Main: Uber Freight Driver&#xD;
+Secondary: None&#xD;
+&#xD;
+Pre-conditions:&#xD;
+•    Uber servers are up and running&#xD;
+•    Uber Freight Driver has access to internet connection&#xD;
+•    There’s shipments available to consult&#xD;
+•    The user has an up to date app&#xD;
+&#xD;
+Main flow&#xD;
+1- The Uber Freight Driver connects to internet&#xD;
+2- The Uber Freight Driver opens the app&#xD;
+3- The Uber Freight Driver checks the information about the shipments he's assigned to&#xD;
+4- The Uber Freight Driver closes the app&#xD;
+&#xD;
+Alternative flow:&#xD;
+    There is some problem with the communication between the app and the server&#xD;
+&#xD;
+Post-Conditions&#xD;
+None&#xD;
+&#xD;
+Alternative Flow: There is some problem with the communication between the app and the server&#xD;
+ID: 29.1&#xD;
+&#xD;
+Description:&#xD;
+The system gives an error when the driver tries to access the information.&#xD;
+&#xD;
+Actors:&#xD;
+Main: Uber Rides Driver&#xD;
+Secondary: None&#xD;
+&#xD;
+Pre-conditions:&#xD;
+None&#xD;
+&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 3 of main flow&#xD;
+2-The app sends an error message&#xD;
+&#xD;
+Post-conditions&#xD;
+None</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_jrsSsBh_EeuUhICWwvjDvw" name="Start trip">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_4WEssBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver starts its trip</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mdDnEBh_EeuUhICWwvjDvw" name="Complete delivery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_57nuMBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver completes its delivery</body>
+      </ownedComment>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_LRSj4RiAEeuUhICWwvjDvw" name="ExtensionPoint2"/>
+      <include xmi:type="uml:Include" xmi:id="_CUtDYBiAEeuUhICWwvjDvw" addition="_AIEMsBiAEeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_AIEMsBiAEeuUhICWwvjDvw" name="Upload POD">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_7rDEcBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver uploads proof of delivery</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_IJHSABiAEeuUhICWwvjDvw" name="Rate facility">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_-j7WEBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: driver rates the facility he/she delivered to</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_LRSj4BiAEeuUhICWwvjDvw" extendedCase="_mdDnEBh_EeuUhICWwvjDvw" extensionLocation="_LRSj4RiAEeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hPS20BiBEeuUhICWwvjDvw" name="Post truck">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_HHBYgBikEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver announces its availability to do deliveries in a specific schelude</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_3IpvwBiBEeuUhICWwvjDvw" name="Request Uber Eats Delivery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ct2B4BiiEeu3Xuvrl2yTzA">
+        <body>Request Uber Eats Delivery&#xD;
+ID: UC8&#xD;
+Description:&#xD;
+This UC consists on a request for food by the part of a client.&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+There are restaurants open in the area the user is asking for food.&#xD;
+&#xD;
+Main flow&#xD;
+1-The user opens the app&#xD;
+2-The user presses the button to start the order request &#xD;
+3-Include: Select Desired Food&#xD;
+4-The user choses the location the delivery is going to be sent to&#xD;
+5-The system calculates the amount to be paid&#xD;
+6-The system checks if the data the user is related with is valid for payment&#xD;
+7-The system debits the amount and validates the delivery&#xD;
+8-The system sends the order to the restaurant and to a driver which is going to be associated to the delivery&#xD;
+9-Extension Point: Contact Food Delivery Man/Woman&#xD;
+10-Receive delivery&#xD;
+11-Extension Point: Rate the delivery&#xD;
+&#xD;
+Alternative flow:&#xD;
+The data related with the user for payment isn’t valid for payment. The users pay method doesn’t have enough currency to pay the delivery. Food doesn’t arrive due to any kind of incident or arrives late or damaged.&#xD;
+&#xD;
+Post-conditions:&#xD;
+System records the delivery data which is going to appear in the history of the client&#xD;
+&#xD;
+Alternative Flow: The data related with the user for payment isn’t valid for payment.&#xD;
+ID: 8.1&#xD;
+Description:&#xD;
+The system informs the user that the data he has submitted for payment isn’t valid&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The user inserted invalid payment data.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 6 of main flow&#xD;
+2-The app sends an error message and the delivery doesn’t go through&#xD;
+Post-conditions&#xD;
+None&#xD;
+&#xD;
+Alternative flow:   The users pay method doesn’t have enough currency to pay the delivery.&#xD;
+ID: 8.2&#xD;
+Description:&#xD;
+The system informs the user that the data he has submitted for payment isn’t valid to conclude the operation&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The payment data the user has submitted is valid but doesn’t have enough currency to pay for the delivery.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 6 of main flow&#xD;
+2-The app sends an error message and the delivery doesn’t go through&#xD;
+Post-conditions&#xD;
+None&#xD;
+&#xD;
+Alternative flow: Food doesn’t arrive due to any kind of incident or arrives late or damaged.&#xD;
+ID: 7.3&#xD;
+Description:&#xD;
+The user files a complaint or a request for a refund in case anything happened to the food.&#xD;
+Actors:&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+There has been a problem with the food delivery.&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 9 of main flow&#xD;
+2-The user presses the button to report and files a refund request or a complaint &#xD;
+&#xD;
+Post-conditions:&#xD;
+The system refunds the user if the user asks and makes a valid point on his refund request.</body>
+      </ownedComment>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_9ntBYRiCEeuUhICWwvjDvw" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_D7ExABiQEeu3Xuvrl2yTzA" name="ExtensionPoint3"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_VVRXARiQEeu3Xuvrl2yTzA" name="ExtensionPoint4"/>
+      <include xmi:type="uml:Include" xmi:id="_H1tGcBiDEeuUhICWwvjDvw" addition="_Ecw0sBiDEeuUhICWwvjDvw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Pg5tABiCEeuUhICWwvjDvw" name="Prepare Delivery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_RDC8wBikEeu3Xuvrl2yTzA">
+        <body>Brief Description: The restaurant prepares the delivery for it to be delivered</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Tdp2cBiCEeuUhICWwvjDvw" name="Collect Delivery" visibility="protected">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_rGYqMBihEeu3Xuvrl2yTzA">
+        <body>Collect Delivery&#xD;
+ID: UC36&#xD;
+Description:&#xD;
+The Uber Eats Driver picks up a food delivery from the Uber Eats Affiliated Restaurant.&#xD;
+Actors&#xD;
+       Main: Uber Eats Driver&#xD;
+       Secondary: Uber Eats Affiliated Restaurant&#xD;
+Pre-conditions:&#xD;
+The Uber servers are up and running, the Uber Eats Driver has a stable internet connection, the Uber Eats Driver has the latest version of the app installed, the Uber Eats Driver has accepted a food delivery.&#xD;
+Main flow&#xD;
+1 - The UC starts when the Uber Eats Driver arrives at the Uber Eats Affiliated Restaurant to pick up a delivery.&#xD;
+2 - The Uber Eats Driver picks up the order from the Uber Eats Affiliated Restaurant according to its instructions.&#xD;
+4 - If the Uber Eats Driver chooses to give a thumbs up or thumbs down to the pickup:&#xD;
+	4.1 - The system saves and updates the restaurant profile with the given feedback.&#xD;
+3 - The Uber Eats Driver uses the application to signal that the order has been picked up and the delivery will begin.&#xD;
+5 - The system acknowledges the delivery is starting and calculates the Uber Eats Driver trajectory.&#xD;
+Post-conditions&#xD;
+The application gives the signal that the delivery has started and updates the time the Uber Eats Driver will arrive.&#xD;
+Alternative flow&#xD;
+The delivery is not ready&#xD;
+&#xD;
+Alternative flow: The delivery is not ready&#xD;
+ID: 36.1&#xD;
+Description:&#xD;
+The Uber Eats Affiliated Restaurant informs the Uber Eats Driver that the order is not ready.&#xD;
+Actors:&#xD;
+       Main: Uber Eats Driver&#xD;
+       Secondary: Uber Eats Affiliated Restaurant &#xD;
+Pre-conditions:&#xD;
+The Uber Eats Driver has arrived at the Uber Eats Affiliated Restaurant and the delivery is not ready.&#xD;
+Alternative Flow:&#xD;
+1 - The alternative flow begins after step 1 of the main flow.&#xD;
+2 - The Uber Eats Driver waits for the delivery to be ready.&#xD;
+3 - The alternative flow returns to step 2 of the main flow.&#xD;
+Post-conditions&#xD;
+None</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_rz2lQBiCEeuUhICWwvjDvw" name="Reject Food Delivery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_JSnGUBikEeu3Xuvrl2yTzA">
+        <body>Brief Description: Uber Eats driver rejects a specific order</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_xD1RIBiCEeuUhICWwvjDvw" name="Contact Food Recipient">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_N3j4MBikEeu3Xuvrl2yTzA">
+        <body>Brief Description: Uber Eats driver contacts the person who made the order</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_PXns0BiQEeu3Xuvrl2yTzA" extendedCase="_LuKS0BiQEeu3Xuvrl2yTzA" extensionLocation="_PXns0RiQEeu3Xuvrl2yTzA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Ecw0sBiDEeuUhICWwvjDvw" name="Select Desired Food">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_jvY8kBijEeu3Xuvrl2yTzA">
+        <body>Booking Uber Rides Transportation&#xD;
+ID: UC15&#xD;
+Description:&#xD;
+This UC consists in the selection of the order by the part of a client&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+The client started a Request for Uber Eats&#xD;
+&#xD;
+Main flow&#xD;
+1-The client selects the food he/she desires&#xD;
+2-The client presses the confirm button&#xD;
+&#xD;
+Alternative flow:&#xD;
+&#xD;
+Post-Conditions:&#xD;
+The data of the order is saved on the server</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_MJgd8BiDEeuUhICWwvjDvw" name="Select Ride type/location">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_OL0GYBijEeu3Xuvrl2yTzA">
+        <body>Select Ride type/location&#xD;
+ID: UC12&#xD;
+Description:&#xD;
+This UC consists in the selection of the ride type and location by the part of a client&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The app is up to the date and functional on the client’s device.&#xD;
+There is internet connection on the device the client is using to do the request.&#xD;
+The servers are up and running.&#xD;
+The client has started the request for a uber rides driver&#xD;
+&#xD;
+Main flow&#xD;
+1-The user selects the destination of the trip&#xD;
+2-The user selects the type of ride he wants&#xD;
+&#xD;
+&#xD;
+Alternative flow:&#xD;
+&#xD;
+Post-conditions:&#xD;
+System records the client's trip details&#xD;
+</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_9z1F8BiPEeu3Xuvrl2yTzA" name="Rate the delivery" visibility="package">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_jBql0BihEeu3Xuvrl2yTzA">
+        <body>Rate the delivery&#xD;
+ID: UC9&#xD;
+Description:&#xD;
+This UC allows the Client to rate and review the driver and restaurant of the order received.&#xD;
+Actors&#xD;
+       Main: Client&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The Uber servers are up and running, the Client has a stable internet connection, the Client has the latest version of the application installed, the Client has placed and received an Uber Eats order.&#xD;
+Main flow&#xD;
+1 - The UC starts when the Client opens the application after having received a delivery.&#xD;
+2 - The application connects to the internet.&#xD;
+3 - The Client rates the driver, from one star to five stars.&#xD;
+4 - The Client gives feedback about the driver with pros and/or cons.&#xD;
+5 - The system saves and updates the driver’s profile with the given rating and feedback.&#xD;
+6 - The Client rates the restaurant, from one star to five stars.&#xD;
+7 - The Client gives feedback about the restaurant with pros and/or cons.&#xD;
+8 - The system saves and updates the restaurant’s profile with the given rating and feedback.&#xD;
+9 - The system saves all changes made to the database.&#xD;
+10 - The Client is taken back to the homepage of the application.&#xD;
+Post-conditions: &#xD;
+The driver profile and restaurant profile are updated with the review.&#xD;
+Alternative flow: &#xD;
+None.</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_D7C70BiQEeu3Xuvrl2yTzA" extendedCase="_3IpvwBiBEeuUhICWwvjDvw" extensionLocation="_D7ExABiQEeu3Xuvrl2yTzA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_FyV0oBiQEeu3Xuvrl2yTzA" name="Check trip record">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_FkaoMBiiEeu3Xuvrl2yTzA">
+        <body>Check trip record&#xD;
+ID: UC17&#xD;
+Description:&#xD;
+This UC allows the user to access his trips history&#xD;
+Actors &#xD;
+Main: Registered User&#xD;
+Secondary: None&#xD;
+Pre-conditions:&#xD;
+The Uber servers are up and running, the user has a stable internet connection, the user has the latest version of the app installed, the user has an account logged in&#xD;
+Main flow&#xD;
+1-The UC starts when the user opens the app&#xD;
+2-The app connects to the internet&#xD;
+3-Include (Access account details)&#xD;
+4-The user informs they want to check their trips history &#xD;
+5-The system loads the user’s history&#xD;
+6-The user checks his history&#xD;
+7-The user exits the history screen&#xD;
+Alternative flow: the system could not communicate with the database and retrieve the user’s information&#xD;
+Postconditions: None.&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+Alternative Flow: The system could not communicate with the database and retrieve the user’s information.&#xD;
+ID: 17.1&#xD;
+Description:&#xD;
+The system informs the user that his data could not be retrieved&#xD;
+Actors:&#xD;
+       Main: Registered User&#xD;
+       Secondary: None&#xD;
+Pre-conditions:&#xD;
+The server could not communicate with the main database&#xD;
+Alternative Flow:&#xD;
+1-The alternative flow begins after step 4 of main flow&#xD;
+2-The app sends an error message and does not show the user’s history&#xD;
+Postconditions:&#xD;
+None.</body>
+      </ownedComment>
+      <include xmi:type="uml:Include" xmi:id="_IWXQkBiQEeu3Xuvrl2yTzA" addition="_859QwBhlEeuJKYJz-1F4yA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_LuKS0BiQEeu3Xuvrl2yTzA" name="Accept Food Delivery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_K_hUEBikEeu3Xuvrl2yTzA">
+        <body>Brief Description: Uber eats driver accepts a specific order</body>
+      </ownedComment>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_PXns0RiQEeu3Xuvrl2yTzA" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_S9oKMBiQEeu3Xuvrl2yTzA" name="Contact Food Delivery Man/Woman">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_mYJHgBijEeu3Xuvrl2yTzA">
+        <body>Brief Description:Client contacts the food delivery man/woman</body>
+      </ownedComment>
+      <extend xmi:type="uml:Extend" xmi:id="_VVRXABiQEeu3Xuvrl2yTzA" extendedCase="_3IpvwBiBEeuUhICWwvjDvw" extensionLocation="_VVRXARiQEeu3Xuvrl2yTzA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_7jSigBiWEeu3Xuvrl2yTzA" name="Conclude the trip">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_YPZrMBijEeu3Xuvrl2yTzA">
+        <body>Brief Description: Driver and Client conclude the trip</body>
+      </ownedComment>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_UxZ34BkzEeu6ddopLlIi4w" name="Book a load">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_c2SUUBkzEeu6ddopLlIi4w">
+        <body>Brief Description: The driver books a load transfer</body>
+      </ownedComment>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_eMyY0BhlEeuJKYJz-1F4yA" name="Registered user"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_h5bCoBhlEeuJKYJz-1F4yA" name="Unregistered User"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_lsedgBhlEeuJKYJz-1F4yA" name="Uber Rides Driver"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_rJOaEBhlEeuJKYJz-1F4yA" name="Client"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_srfeEBhlEeuJKYJz-1F4yA" memberEnd="_srgFIRhlEeuJKYJz-1F4yA _srgFIhhlEeuJKYJz-1F4yA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_srfeERhlEeuJKYJz-1F4yA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_srgFIBhlEeuJKYJz-1F4yA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <generalization xmi:type="uml:Generalization" xmi:id="_uxUiIBhlEeuJKYJz-1F4yA" general="_eMyY0BhlEeuJKYJz-1F4yA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_srgFIRhlEeuJKYJz-1F4yA" name="driver" type="_lsedgBhlEeuJKYJz-1F4yA" association="_srfeEBhlEeuJKYJz-1F4yA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_srgFIhhlEeuJKYJz-1F4yA" name="cliente" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_srfeEBhlEeuJKYJz-1F4yA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4pSFwBhlEeuJKYJz-1F4yA" memberEnd="_4pSs0hhlEeuJKYJz-1F4yA _4pSs0xhlEeuJKYJz-1F4yA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4pSs0BhlEeuJKYJz-1F4yA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4pSs0RhlEeuJKYJz-1F4yA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4pSs0hhlEeuJKYJz-1F4yA" name="user sem conta" type="_h5bCoBhlEeuJKYJz-1F4yA" association="_4pSFwBhlEeuJKYJz-1F4yA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4pSs0xhlEeuJKYJz-1F4yA" name="criar conta" type="_2pk30BhlEeuJKYJz-1F4yA" association="_4pSFwBhlEeuJKYJz-1F4yA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_8NHY4BhlEeuJKYJz-1F4yA" memberEnd="_8NH_8BhlEeuJKYJz-1F4yA _8NH_8RhlEeuJKYJz-1F4yA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8NHY4RhlEeuJKYJz-1F4yA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8NHY4hhlEeuJKYJz-1F4yA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8NH_8BhlEeuJKYJz-1F4yA" name="user com conta" type="_eMyY0BhlEeuJKYJz-1F4yA" association="_8NHY4BhlEeuJKYJz-1F4yA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8NH_8RhlEeuJKYJz-1F4yA" name="mudar detalhes da conta" type="_5tacQBhlEeuJKYJz-1F4yA" association="_8NHY4BhlEeuJKYJz-1F4yA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_c5PoIBh3EeuUhICWwvjDvw" memberEnd="_c5SrcBh3EeuUhICWwvjDvw _c5SrcRh3EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c5SEYBh3EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_c5SEYRh3EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_c5SrcBh3EeuUhICWwvjDvw" name="cliente" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_c5PoIBh3EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_c5SrcRh3EeuUhICWwvjDvw" name="pedir uber ride" type="_ZiiyEBh3EeuUhICWwvjDvw" association="_c5PoIBh3EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DUSxwBh4EeuUhICWwvjDvw" memberEnd="_DUT_4Rh4EeuUhICWwvjDvw _DUT_4hh4EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DUTY0Bh4EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DUT_4Bh4EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DUT_4Rh4EeuUhICWwvjDvw" name="login" type="_CYxksBh4EeuUhICWwvjDvw" association="_DUSxwBh4EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DUT_4hh4EeuUhICWwvjDvw" name="user com conta" type="_eMyY0BhlEeuJKYJz-1F4yA" association="_DUSxwBh4EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_keKVoBh4EeuUhICWwvjDvw" memberEnd="_keK8shh4EeuUhICWwvjDvw _keK8sxh4EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_keK8sBh4EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_keK8sRh4EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_keK8shh4EeuUhICWwvjDvw" name="aceitar ride" type="_fPRO4Bh4EeuUhICWwvjDvw" association="_keKVoBh4EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_keK8sxh4EeuUhICWwvjDvw" name="uber rides driver" type="_lsedgBhlEeuJKYJz-1F4yA" association="_keKVoBh4EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_k4cd4Bh4EeuUhICWwvjDvw" memberEnd="_k4dE8hh4EeuUhICWwvjDvw _k4dsABh4EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_k4dE8Bh4EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_k4dE8Rh4EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_k4dE8hh4EeuUhICWwvjDvw" name="rejeitar ride" type="_gdShMBh4EeuUhICWwvjDvw" association="_k4cd4Bh4EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_k4dsABh4EeuUhICWwvjDvw" name="uber rides driver" type="_lsedgBhlEeuJKYJz-1F4yA" association="_k4cd4Bh4EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2XxbgBh4EeuUhICWwvjDvw" memberEnd="_2XyCkhh4EeuUhICWwvjDvw _2XyCkxh4EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2XyCkBh4EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2XyCkRh4EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2XyCkhh4EeuUhICWwvjDvw" type="_lsedgBhlEeuJKYJz-1F4yA" association="_2XxbgBh4EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2XyCkxh4EeuUhICWwvjDvw" name="contactar condutor" type="_JOUgMBh4EeuUhICWwvjDvw" association="_2XxbgBh4EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_5k43wBh4EeuUhICWwvjDvw" memberEnd="_5k5e0hh4EeuUhICWwvjDvw _5k6F4Bh4EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5k5e0Bh4EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5k5e0Rh4EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_5k5e0hh4EeuUhICWwvjDvw" name="cliente" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_5k43wBh4EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_5k6F4Bh4EeuUhICWwvjDvw" name="contactar cliente" type="_npoMEBh4EeuUhICWwvjDvw" association="_5k43wBh4EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2e2B8Bh6EeuUhICWwvjDvw" memberEnd="_2e2pARh6EeuUhICWwvjDvw _2e2pAhh6EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2e2B8Rh6EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2e2pABh6EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2e2pARh6EeuUhICWwvjDvw" name="user com conta" type="_eMyY0BhlEeuJKYJz-1F4yA" association="_2e2B8Bh6EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2e2pAhh6EeuUhICWwvjDvw" name="cancelar servico" type="__OqHMBh5EeuUhICWwvjDvw" association="_2e2B8Bh6EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TXyjMBh7EeuUhICWwvjDvw" memberEnd="_TXzKQhh7EeuUhICWwvjDvw _TXzKQxh7EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TXzKQBh7EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TXzKQRh7EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_TXzKQhh7EeuUhICWwvjDvw" name="alugar trotinete" type="_LUgCMBh7EeuUhICWwvjDvw" association="_TXyjMBh7EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_TXzKQxh7EeuUhICWwvjDvw" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_TXyjMBh7EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YGwzwBh7EeuUhICWwvjDvw" memberEnd="_YGxa0hh7EeuUhICWwvjDvw _YGxa0xh7EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YGxa0Bh7EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YGxa0Rh7EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YGxa0hh7EeuUhICWwvjDvw" name="alugar bicicleta" type="_Wj0aUBh7EeuUhICWwvjDvw" association="_YGwzwBh7EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YGxa0xh7EeuUhICWwvjDvw" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_YGwzwBh7EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_pQTHkBh7EeuUhICWwvjDvw" name="Time"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="__T-aIBh7EeuUhICWwvjDvw" memberEnd="__T_BMhh7EeuUhICWwvjDvw __T_BMxh7EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__T_BMBh7EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__T_BMRh7EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__T_BMhh7EeuUhICWwvjDvw" name="alugar trotinete" type="_LUgCMBh7EeuUhICWwvjDvw" association="__T-aIBh7EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__T_BMxh7EeuUhICWwvjDvw" name="tempo" type="_pQTHkBh7EeuUhICWwvjDvw" association="__T-aIBh7EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ADcvQBh8EeuUhICWwvjDvw" memberEnd="_ADdWUhh8EeuUhICWwvjDvw _ADdWUxh8EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ADdWUBh8EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ADdWURh8EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ADdWUhh8EeuUhICWwvjDvw" name="alugar bicicleta" type="_Wj0aUBh7EeuUhICWwvjDvw" association="_ADcvQBh8EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ADdWUxh8EeuUhICWwvjDvw" type="_pQTHkBh7EeuUhICWwvjDvw" association="_ADcvQBh8EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_e7YFsBh8EeuUhICWwvjDvw" memberEnd="_e7Yswhh8EeuUhICWwvjDvw _e7Yswxh8EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e7YswBh8EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e7YswRh8EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_e7Yswhh8EeuUhICWwvjDvw" name="procurar bicicleta/trotineta" type="_aAECQBh8EeuUhICWwvjDvw" association="_e7YFsBh8EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_e7Yswxh8EeuUhICWwvjDvw" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_e7YFsBh8EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vh4k8Bh8EeuUhICWwvjDvw" memberEnd="_vh5MARh8EeuUhICWwvjDvw _vh5MAhh8EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vh4k8Rh8EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vh5MABh8EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vh5MARh8EeuUhICWwvjDvw" name="pedir uber freight" type="_sTzfYBh8EeuUhICWwvjDvw" association="_vh4k8Bh8EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vh5MAhh8EeuUhICWwvjDvw" type="_e7YFsBh8EeuUhICWwvjDvw" association="_vh4k8Bh8EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ibikUBh9EeuUhICWwvjDvw" memberEnd="_ibjLYhh9EeuUhICWwvjDvw _ibjLYxh9EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ibjLYBh9EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ibjLYRh9EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ibjLYhh9EeuUhICWwvjDvw" name="user com conta" type="_eMyY0BhlEeuJKYJz-1F4yA" association="_ibikUBh9EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ibjLYxh9EeuUhICWwvjDvw" name="contactar suporte" type="_gZhpQBh9EeuUhICWwvjDvw" association="_ibikUBh9EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_QgNVQBh_EeuUhICWwvjDvw" name="Uber Freight Driver"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ybVW8Bh_EeuUhICWwvjDvw" memberEnd="_ybV-ABh_EeuUhICWwvjDvw _ybV-ARh_EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ybVW8Rh_EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ybVW8hh_EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ybV-ABh_EeuUhICWwvjDvw" name="condutor uber freight" type="_QgNVQBh_EeuUhICWwvjDvw" association="_ybVW8Bh_EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ybV-ARh_EeuUhICWwvjDvw" name="entregar carga" type="_jrsSsBh_EeuUhICWwvjDvw" association="_ybVW8Bh_EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zHBYQBh_EeuUhICWwvjDvw" memberEnd="_zHB_URh_EeuUhICWwvjDvw _zHB_Uhh_EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zHBYQRh_EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zHB_UBh_EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zHB_URh_EeuUhICWwvjDvw" name="condutor uber freight" type="_QgNVQBh_EeuUhICWwvjDvw" association="_zHBYQBh_EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zHB_Uhh_EeuUhICWwvjDvw" name="consultar freights marcadas" type="_hdKloBh_EeuUhICWwvjDvw" association="_zHBYQBh_EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4iUjUBh_EeuUhICWwvjDvw" memberEnd="_4iVKYBh_EeuUhICWwvjDvw _4iVKYRh_EeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4iUjURh_EeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4iUjUhh_EeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4iVKYBh_EeuUhICWwvjDvw" name="completar entrega" type="_mdDnEBh_EeuUhICWwvjDvw" association="_4iUjUBh_EeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4iVKYRh_EeuUhICWwvjDvw" name="condutor uber freight" type="_QgNVQBh_EeuUhICWwvjDvw" association="_4iUjUBh_EeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_KNH7sBiBEeuUhICWwvjDvw" memberEnd="_KNIiwhiBEeuUhICWwvjDvw _KNIiwxiBEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KNIiwBiBEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KNIiwRiBEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_KNIiwhiBEeuUhICWwvjDvw" name="uber freight driver" type="_QgNVQBh_EeuUhICWwvjDvw" association="_KNH7sBiBEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_KNIiwxiBEeuUhICWwvjDvw" type="_srfeEBhlEeuJKYJz-1F4yA" association="_KNH7sBiBEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_iT_OABiBEeuUhICWwvjDvw" memberEnd="_iT_1EhiBEeuUhICWwvjDvw _iT_1ExiBEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iT_1EBiBEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iT_1ERiBEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_iT_1EhiBEeuUhICWwvjDvw" name="post truck" type="_hPS20BiBEeuUhICWwvjDvw" association="_iT_OABiBEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_iT_1ExiBEeuUhICWwvjDvw" type="_4iUjUBh_EeuUhICWwvjDvw" association="_iT_OABiBEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6i3M0BiBEeuUhICWwvjDvw" memberEnd="_6i3z4hiBEeuUhICWwvjDvw _6i3z4xiBEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6i3z4BiBEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6i3z4RiBEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6i3z4hiBEeuUhICWwvjDvw" name="request uber eats delivery" type="_3IpvwBiBEeuUhICWwvjDvw" association="_6i3M0BiBEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6i3z4xiBEeuUhICWwvjDvw" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_6i3M0BiBEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_-a4nQBiBEeuUhICWwvjDvw" name="Uber Eats Driver"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ASBIABiCEeuUhICWwvjDvw" memberEnd="_ASBvEhiCEeuUhICWwvjDvw _ASBvExiCEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ASBvEBiCEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ASBvERiCEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ASBvEhiCEeuUhICWwvjDvw" name="uber eats driver" type="_-a4nQBiBEeuUhICWwvjDvw" association="_ASBIABiCEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ASBvExiCEeuUhICWwvjDvw" type="_KNH7sBiBEeuUhICWwvjDvw" association="_ASBIABiCEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_GoN1EBiCEeuUhICWwvjDvw" name="Uber Eats Afilliated Restaurants"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Rq9w0BiCEeuUhICWwvjDvw" memberEnd="_Rq-X4hiCEeuUhICWwvjDvw _Rq-X4xiCEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rq-X4BiCEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Rq-X4RiCEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Rq-X4hiCEeuUhICWwvjDvw" name="prepare delivery" type="_Pg5tABiCEeuUhICWwvjDvw" association="_Rq9w0BiCEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Rq-X4xiCEeuUhICWwvjDvw" name="uber eats afilliated restaurants" type="_GoN1EBiCEeuUhICWwvjDvw" association="_Rq9w0BiCEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Uqs4YBiCEeuUhICWwvjDvw" memberEnd="_Uqs4YxiCEeuUhICWwvjDvw _Uqs4ZBiCEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Uqs4YRiCEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Uqs4YhiCEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Uqs4YxiCEeuUhICWwvjDvw" name="collect delivery" type="_Tdp2cBiCEeuUhICWwvjDvw" association="_Uqs4YBiCEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Uqs4ZBiCEeuUhICWwvjDvw" name="uber eats driver" type="_-a4nQBiBEeuUhICWwvjDvw" association="_Uqs4YBiCEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_cvZHkBiCEeuUhICWwvjDvw" memberEnd="_cvZHkxiCEeuUhICWwvjDvw _cvZuoBiCEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cvZHkRiCEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cvZHkhiCEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cvZHkxiCEeuUhICWwvjDvw" name="uber eats afilliated restaurants" type="_GoN1EBiCEeuUhICWwvjDvw" association="_cvZHkBiCEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cvZuoBiCEeuUhICWwvjDvw" type="_Tdp2cBiCEeuUhICWwvjDvw" association="_cvZHkBiCEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vbgBYBiCEeuUhICWwvjDvw" memberEnd="_vbgochiCEeuUhICWwvjDvw _vbgocxiCEeuUhICWwvjDvw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vbgocBiCEeuUhICWwvjDvw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vbgocRiCEeuUhICWwvjDvw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vbgochiCEeuUhICWwvjDvw" name="uber eats driver" type="_-a4nQBiBEeuUhICWwvjDvw" association="_vbgBYBiCEeuUhICWwvjDvw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vbgocxiCEeuUhICWwvjDvw" name="reject food delivery" type="_rz2lQBiCEeuUhICWwvjDvw" association="_vbgBYBiCEeuUhICWwvjDvw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_HLFJMBiQEeu3Xuvrl2yTzA" memberEnd="_HLG-YBiQEeu3Xuvrl2yTzA _HLHlcBiQEeu3Xuvrl2yTzA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HLGXUBiQEeu3Xuvrl2yTzA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HLGXURiQEeu3Xuvrl2yTzA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HLG-YBiQEeu3Xuvrl2yTzA" name="registered user" type="_eMyY0BhlEeuJKYJz-1F4yA" association="_HLFJMBiQEeu3Xuvrl2yTzA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HLHlcBiQEeu3Xuvrl2yTzA" name="check trip record" type="_FyV0oBiQEeu3Xuvrl2yTzA" association="_HLFJMBiQEeu3Xuvrl2yTzA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_N2DzcBiQEeu3Xuvrl2yTzA" memberEnd="_N2EaghiQEeu3Xuvrl2yTzA _N2EagxiQEeu3Xuvrl2yTzA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N2EagBiQEeu3Xuvrl2yTzA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N2EagRiQEeu3Xuvrl2yTzA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N2EaghiQEeu3Xuvrl2yTzA" name="accept food delivery" type="_LuKS0BiQEeu3Xuvrl2yTzA" association="_N2DzcBiQEeu3Xuvrl2yTzA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N2EagxiQEeu3Xuvrl2yTzA" name="uber eats driver" type="_-a4nQBiBEeuUhICWwvjDvw" association="_N2DzcBiQEeu3Xuvrl2yTzA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UGiTABiQEeu3Xuvrl2yTzA" memberEnd="_UGi6EhiQEeu3Xuvrl2yTzA _UGjhIBiQEeu3Xuvrl2yTzA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UGi6EBiQEeu3Xuvrl2yTzA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UGi6ERiQEeu3Xuvrl2yTzA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_UGi6EhiQEeu3Xuvrl2yTzA" name="uber eats driver" type="_-a4nQBiBEeuUhICWwvjDvw" association="_UGiTABiQEeu3Xuvrl2yTzA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_UGjhIBiQEeu3Xuvrl2yTzA" name="contact food delivery guy" type="_S9oKMBiQEeu3Xuvrl2yTzA" association="_UGiTABiQEeu3Xuvrl2yTzA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gc-AABiXEeu3Xuvrl2yTzA" memberEnd="_gc-AAxiXEeu3Xuvrl2yTzA _gc-nEBiXEeu3Xuvrl2yTzA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gc-AARiXEeu3Xuvrl2yTzA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gc-AAhiXEeu3Xuvrl2yTzA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_gc-AAxiXEeu3Xuvrl2yTzA" name="conclude the trip" type="_7jSigBiWEeu3Xuvrl2yTzA" association="_gc-AABiXEeu3Xuvrl2yTzA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_gc-nEBiXEeu3Xuvrl2yTzA" type="_rJOaEBhlEeuJKYJz-1F4yA" association="_gc-AABiXEeu3Xuvrl2yTzA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_7deY8BiXEeu3Xuvrl2yTzA" memberEnd="_7dfAAhiXEeu3Xuvrl2yTzA _7dfAAxiXEeu3Xuvrl2yTzA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7dfAABiXEeu3Xuvrl2yTzA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7dfAARiXEeu3Xuvrl2yTzA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7dfAAhiXEeu3Xuvrl2yTzA" name="conclude the trip" type="_7jSigBiWEeu3Xuvrl2yTzA" association="_7deY8BiXEeu3Xuvrl2yTzA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7dfAAxiXEeu3Xuvrl2yTzA" type="_lsedgBhlEeuJKYJz-1F4yA" association="_7deY8BiXEeu3Xuvrl2yTzA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_W0uagBkzEeu6ddopLlIi4w" memberEnd="_W0yE4BkzEeu6ddopLlIi4w _W0yE4RkzEeu6ddopLlIi4w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_W0xd0BkzEeu6ddopLlIi4w" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_W0xd0RkzEeu6ddopLlIi4w" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_W0yE4BkzEeu6ddopLlIi4w" name="uber freight driver" type="_QgNVQBh_EeuUhICWwvjDvw" association="_W0uagBkzEeu6ddopLlIi4w"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_W0yE4RkzEeu6ddopLlIi4w" name="book a load" type="_UxZ34BkzEeu6ddopLlIi4w" association="_W0uagBkzEeu6ddopLlIi4w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6Sd9cC3XEeuLCtY3LH41wQ" name="UnregisteredUser" visibility="public">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EBvpsC3ZEeuLCtY3LH41wQ" name="createAccount"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_fNnlIC3ZEeuLCtY3LH41wQ" name="RegisteredUser">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VsKnkC3aEeuLCtY3LH41wQ" name="Username" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WdI8EC3bEeuLCtY3LH41wQ" name="Password" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UlGm8C3cEeuLCtY3LH41wQ" name="PaymentMethod" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7Fyl4C3ZEeuLCtY3LH41wQ" name="login"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_KnKpEC3aEeuLCtY3LH41wQ" name="alterAccountDetails"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_wMyKEC3bEeuLCtY3LH41wQ" name="cancelService"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yT_HIC3bEeuLCtY3LH41wQ" name="checkTripRecord"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5m1psC3bEeuLCtY3LH41wQ" name="contactSupport"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jCp1oC3cEeuLCtY3LH41wQ" name="Client">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_3Vs4EC3cEeuLCtY3LH41wQ" name="concludeTrip"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qIpLcC3dEeuLCtY3LH41wQ" name="searchBikeScooter"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_6Mf0IC3eEeuLCtY3LH41wQ" name="bookUberFreight"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AlNiUC3iEeuLCtY3LH41wQ" name="AfilliatedRestaurants">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_K7y7oC3iEeuLCtY3LH41wQ" name="Name" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_g2t60C3iEeuLCtY3LH41wQ" name="FoodMenu" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EResourceSet"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GJtssC3iEeuLCtY3LH41wQ" name="prepareDelivery"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_E44bIC3bEeuLCtY3LH41wQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_E4_I0C3bEeuLCtY3LH41wQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Package>
